@@ -65,7 +65,7 @@ title = st.text_input("Title", placeholder="Enter the news headline here...")
 text = st.text_area("Content", placeholder="Paste the full news article here...")
 
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
-if st.button("Check News"):
+if st.button("Verify"):
     if title and text:
         combined_text = title + " " + text
 
