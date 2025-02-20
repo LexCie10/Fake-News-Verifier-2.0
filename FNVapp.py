@@ -57,7 +57,7 @@ st.markdown("""
     """, unsafe_allow_html=True)
 
 # Give the Streamlit app page a title
-st.markdown("<h1 style='text-align: center; color: #4A7DF5;'>FAKE NEWS VERIFIER</h1>", unsafe_allow_html=True)
+st.markdown("<h1 style='text-align: center; color: #4A7DF5;'>FAKE NEWS VERIFIER 2.0</h1>", unsafe_allow_html=True)
 st.write("<h3 style='text-align: center;'>Type a news article title and content here to verify if it's <b>Fake</b> or <b>Real</b>.</h3>", unsafe_allow_html=True)
 
 # input fields for getting user values for X (title and text fields)
