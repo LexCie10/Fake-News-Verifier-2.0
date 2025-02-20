@@ -51,7 +51,7 @@ st.markdown("""
     }
     .stTextInput > div > div > input {
         border: 2px solid #4A7DF5;
-        border-radius: 5px;
+        border-radius: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
