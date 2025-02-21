@@ -11,7 +11,7 @@ with open("fnv_pipeline.pkl", 'rb') as f:
     pipeline = pickle.load(f)
 
 # List of trusted sources
-trusted_domains = ["bbc.com", "cnn.com", "aljazeera.com", "reuters.com", "nytimes.com", "washingtonpost.com"]
+trusted_domains = ["bbc.com", "cnn.com", "aljazeera.com", "reuters.com", "nytimes.com", "washingtonpost.com", "bloomberg.com", "forbes.com", "theguardian.com", "channels.com", "arisenews.com"]
 
 def extract_url_from_text(text):
     """Extracts a URL from the text if present."""
@@ -58,19 +58,30 @@ st.markdown("""
 
 # Give the Streamlit app page a title
 st.markdown("<h1 style='text-align: center; color: #4A7DF5;'>FAKE NEWS VERIFIER 2.0</h1>", unsafe_allow_html=True)
-st.write("<h3 style='text-align: center;'>Type a news article title and content here to verify if it's <b>Fake</b> or <b>Real</b>.</h3>", unsafe_allow_html=True)
-
+st.write("<h3 style='text-align: center;'>Enter news article title, content and source URL(Optional) here to verify if it's <b>Fake</b> or <b>Real</b>.</h3>", unsafe_allow_html=True)
 # input fields for getting user values for X (title and text fields)
 title = st.text_input("Title", placeholder="Enter the news headline here...")
 text = st.text_area("Content", placeholder="Paste the full news article here...")
+news_url = st.text_input("🔗 Enter the news source URL(Optional)")
 
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
 if st.button("Verify"):
     if title and text:
-        combined_text = title + " " + text
-
         # Extract URL from text
         extracted_url = extract_url_from_text(combined_text)
+
+        # Check if user provided a URL separately
+        final_url = news_url if news_url else extracted_url
+
+        # If the domain is trusted, classify as Real
+        if domain and domain in trusted_domains:
+            st.success(f"This news appears to be **Real** ✅ (Trusted Source: {domain})")
+            
+
+        # Combine title and text into a single feature
+        combined_text = title + " " + text
+
+        # Extract domain from the URL
         domain = extract_domain(extracted_url) if extracted_url else "unknown"
 
         # Auto-classify if from a trusted domain
