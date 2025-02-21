@@ -74,9 +74,9 @@ if st.button("Verify"):
         if news_url:
             final_url = extract_domain(news_url)
         else:
-        if title and text:
-        # Combine title and text into a single feature
-        combined_text = title + " " + text
+          if title and text:
+            # Combine title and text into a single feature
+            combined_text = title + " " + text
 
        
             # If no user-provided URL, extract from text
