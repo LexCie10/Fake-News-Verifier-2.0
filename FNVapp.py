@@ -81,10 +81,6 @@ if st.button("Verify"):
         # If no user-provided URL, extract from text
         final_url = extract_url_from_text(combined_text)
 
-        # Extract URL from text
-        extracted_url = extract_url_from_text(combined_text)
-
-
         # Extract domain from the final_url
         domain = extract_domain(final_url) if final_url else "unknown"
 
