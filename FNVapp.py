@@ -11,7 +11,7 @@ with open("fnv_pipeline.pkl", 'rb') as f:
     pipeline = pickle.load(f)
 
 # List of trusted sources
-trusted_domains = ["bbc.com", "cnn.com", "aljazeera.com", "reuters.com", "nytimes.com", "washingtonpost.com", "bloomberg.com", "forbes.com", "theguardian.com", "channels.com", "arisenews.com"]
+trusted_domains = ["bbc.co.uk", "edition.cnn.com", "aljazeera.com", "reuters.com", "nytimes.com", "washingtonpost.com", "bloomberg.com", "forbes.com", "theguardian.com", "channels.com", "arisenews.com"]
 
 def extract_url_from_text(text):
     """Extracts a URL from the text if present."""
@@ -75,7 +75,6 @@ if st.button("Verify"):
             final_url = extract_domain(url)
     else:
        if title and text:
-
         # Combine title and text into a single feature
         combined_text = title + " " + text
 
