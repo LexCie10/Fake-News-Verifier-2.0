@@ -73,12 +73,12 @@ if st.button("Verify"):
     if title and text:
         # Combine title and text into a single feature
         combined_text = title + " " + text
+
+        # Check if user provided a URL separately
+        final_url = news_url if news_url else combined_text
         
         # Extract URL from text
         extracted_url = extract_url_from_text(combined_text)
-
-        # Check if user provided a URL separately
-        final_url = news_url if news_url else extracted_url
 
          # Extract domain from the URL
         domain = extract_domain(extracted_url) if extracted_url else "unknown"
