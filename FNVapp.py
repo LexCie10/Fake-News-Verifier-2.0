@@ -72,7 +72,7 @@ text = st.text_area("Content", placeholder="Paste the full news article here..."
 if st.button("Verify"):
      # Check if user provided a URL separately first
     if news_url:
-            final_url = extract_domain(news_url)
+            final_url = extract_domain(url)
     else:
        if title and text:
 
