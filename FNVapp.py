@@ -77,14 +77,13 @@ if st.button("Verify"):
 
         # Check if user provided a URL separately first
         if news_url:
-            final_url = news_url
+            final_url = extract_domain(news_url)
         else:
             # If no user-provided URL, extract from text
             final_url = extract_url_from_text(combined_text)
 
         # Extract URL from text
         extracted_url = extract_url_from_text(combined_text)
-
 
         # Extract domain from the URL
         domain = extract_domain(extracted_url) if extracted_url else "unknown"
