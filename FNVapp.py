@@ -78,8 +78,8 @@ if st.button("Verify"):
         if news_url:
             final_url = extract_domain(news_url)
         else:
-        # If no user-provided URL, extract from text
-        final_url = extract_url_from_text(combined_text)
+            # If no user-provided URL, extract from text
+            final_url = extract_url_from_text(combined_text)
 
         # Extract domain from the final_url
         domain = extract_domain(final_url) if final_url else "unknown"
