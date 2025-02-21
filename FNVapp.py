@@ -71,19 +71,20 @@ text = st.text_area("Content", placeholder="Paste the full news article here..."
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
 if st.button("Verify"):
      # Check if user provided a URL separately first
-        if news_url:
+    if news_url:
             final_url = extract_domain(news_url)
-        else:
-          if title and text:
-            # Combine title and text into a single feature
-            combined_text = title + " " + text
+    else:
+       if title and text:
 
-       
-            # If no user-provided URL, extract from text
-            final_url = extract_url_from_text(combined_text)
+        # Combine title and text into a single feature
+        combined_text = title + " " + text
+
+        # If no user-provided URL, extract from text
+        final_url = extract_url_from_text(combined_text)
 
         # Extract URL from text
         extracted_url = extract_url_from_text(combined_text)
+
 
         # Extract domain from the URL
         domain = extract_domain(extracted_url) if extracted_url else "unknown"
@@ -98,5 +99,5 @@ if st.button("Verify"):
             # Show result
             result = "✅ **Real News**" if prediction == 1 else "❌ **Fake News**"
             st.subheader(result)
-        else:
-        st.warning("⚠️ Please enter both the title and content to verify.")
+else:
+    st.warning("⚠️ Please enter both the title and content to verify.")
