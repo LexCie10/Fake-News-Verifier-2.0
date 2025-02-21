@@ -52,6 +52,9 @@ st.markdown("""
     .stTextInput > div > div > input {
         border: 2px solid #4A7DF5;
         border-radius: 10px;
+    .stTextArea > div > div > input {
+        border: 2px solid #4A7DF5;
+        border-radius: 10px;
     }
     </style>
     """, unsafe_allow_html=True)
@@ -59,6 +62,7 @@ st.markdown("""
 # Give the Streamlit app page a title
 st.markdown("<h1 style='text-align: center; color: #4A7DF5;'>FAKE NEWS VERIFIER 2.0</h1>", unsafe_allow_html=True)
 st.write("<h3 style='text-align: center;'>Enter news article title, content and source URL(Optional) here to verify if it's <b>Fake</b> or <b>Real</b>.</h3>", unsafe_allow_html=True)
+
 # input fields for getting user values for X (title and text fields)
 title = st.text_input("Title", placeholder="Enter the news headline here...")
 text = st.text_area("Content", placeholder="Paste the full news article here...")
