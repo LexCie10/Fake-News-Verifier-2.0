@@ -70,15 +70,15 @@ text = st.text_area("Content", placeholder="Paste the full news article here..."
 
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
 if st.button("Verify"):
-    if title and text:
-
-        # Combine title and text into a single feature
-        combined_text = title + " " + text
-
-        # Check if user provided a URL separately first
+     # Check if user provided a URL separately first
         if news_url:
             final_url = extract_domain(news_url)
         else:
+    if title and text:
+        # Combine title and text into a single feature
+        combined_text = title + " " + text
+
+       
             # If no user-provided URL, extract from text
             final_url = extract_url_from_text(combined_text)
 
