@@ -64,9 +64,9 @@ st.markdown("<h1 style='text-align: center; color: #4A7DF5;'>FAKE NEWS VERIFIER 
 st.write("<h3 style='text-align: center;'>Enter news article title, content and source URL(Optional) here to verify if it's <b>Fake</b> or <b>Real</b>.</h3>", unsafe_allow_html=True)
 
 # input fields for getting user values for X (title and text fields)
+news_url = st.text_input("🔗 Enter the news source URL(Optional)")
 title = st.text_input("Title", placeholder="Enter the news headline here...")
 text = st.text_area("Content", placeholder="Paste the full news article here...")
-news_url = st.text_input("🔗 Enter the news source URL(Optional)")
 
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
 if st.button("Verify"):
