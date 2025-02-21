@@ -71,21 +71,23 @@ news_url = st.text_input("🔗 Enter the news source URL(Optional)")
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
 if st.button("Verify"):
     if title and text:
+
         # Combine title and text into a single feature
         combined_text = title + " " + text
 
-        # Check if user provided a URL separately
-        final_url = news_url if news_url else combined_text
-        
+        # Check if user provided a URL separately first
+        if news_url:
+            final_url = news_url
+        else:
+            # If no user-provided URL, extract from text
+            final_url = extract_url_from_text(combined_text)
+
         # Extract URL from text
         extracted_url = extract_url_from_text(combined_text)
 
-         # Extract domain from the URL
+
+        # Extract domain from the URL
         domain = extract_domain(extracted_url) if extracted_url else "unknown"
-        
-        # If the domain is trusted, classify as Real
-        if domain and domain in trusted_domains:
-            st.success(f"This news appears to be **Real** ✅ (Trusted Source: {domain})")
 
         # Auto-classify if from a trusted domain
         if domain in trusted_domains:
