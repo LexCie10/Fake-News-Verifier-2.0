@@ -95,4 +95,4 @@ if st.button("Verify"):
             result = "✅ **Real News**" if prediction == 1 else "❌ **Fake News**"
             st.subheader(result)
 else:
-  st.warning("⚠️ Please enter both the title and content to verify.")
+    st.warning("⚠️ Please enter both the title and content to verify.")
