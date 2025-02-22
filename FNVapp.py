@@ -68,38 +68,40 @@ news_url = st.text_input("🔗URL", placeholder="Enter the news source URL(Optio
 title = st.text_input("Title", placeholder="Enter the news headline here...")
 text = st.text_area("Content", placeholder="Paste the full news article here...")
 
-# Create a flag to track button click
-verify_clicked = st.button
-# After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
-# Run only if button is clicked
-if verify_clicked:
-    if st.button("Verify"):
-           if title.strip() and text.strip():
-            # Combine title and text into a single feature
-            combined_text = title + " " + text
+# Initialize session state for button click
+if "verify_clicked" not in st.session_state:
+    st.session_state.verify_clicked = False
     
-            # Check if user provided a URL separately first
-            if news_url:
-                final_url = extract_domain(news_url)
+# After the user pastes the title and text of his or her News article and the 'Verify' button is clicked, make the prediction
+if st.button("Verify"):
+    st.session_state.verify_clicked = True 
+if st.session_state.verify_clicked:
+    if title.strip() and text.strip():
+        # Combine title and text into a single feature
+        combined_text = title + " " + text
+    
+         # Check if user provided a URL separately first
+        if news_url:
+            final_url = extract_domain(news_url)
+         else:
+            # If no user-provided URL, extract from text
+            final_url = extract_url_from_text(combined_text)
+    
+        # Extract domain from the final_url
+        domain = extract_domain(final_url) if final_url else "unknown"
+    
+        # Auto-classify if from a trusted domain
+        if domain in trusted_domains:
+            st.success(f"✅ **Real News (Trusted Source: {domain})**")
+        else:
+            # Predict using the pipeline
+            prediction = pipeline.predict([combined_text])[0]
+    
+            # Show result
+            if prediction == 1: 
+                st.success("✅ **Real News 🟢**")
             else:
-                # If no user-provided URL, extract from text
-                final_url = extract_url_from_text(combined_text)
-    
-            # Extract domain from the final_url
-            domain = extract_domain(final_url) if final_url else "unknown"
-    
-            # Auto-classify if from a trusted domain
-            if domain in trusted_domains:
-                st.success(f"✅ **Real News (Trusted Source: {domain})**")
-            else:
-                # Predict using the pipeline
-                prediction = pipeline.predict([combined_text])[0]
-    
-                # Show result
-                if prediction == 1: 
-                    st.success("✅ **Real News 🟢**")
-                else:
-                    st.error("❌ **Fake News 🔴**")
+                st.error("❌ **Fake News 🔴**")
                     
     else:
         st.warning("⚠️ Please enter both the title and content to verify.")
