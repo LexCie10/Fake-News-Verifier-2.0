@@ -60,19 +60,19 @@ This project was deployed on streamlit cloud using pandas, pickle, re and tldext
   
 **Recommendation**
 
-Although our model has a high accuracy score and is performing relatively well, there is still room fro improve, as the closer we are to a 100% accuracy, the better for us. Below are recommendations for further wirk to improve the model:
+Although our model has a high accuracy score and is performing relatively well, there is still room fro improve, as the closer we are to a 100% accuracy, the better for us. Below are recommendations for further work to improve the model:
 * We could try out more models like Ensemble Learning, XGBoost, Deep Learning and even a combination of models.
 * Further feature engineering can be conducted, we can add trusted authors, publication dates, more relevant columns and even implement a readability score.
-* We could fine tune our hyper parameter usind GridSearchCV
-* we can implement a feedback system to track misclassification where users can report wrong predictions
-* we can also use Explainable AI to automatically explain why our model classified an article as Fake or real
+* We could fine tune our hyper parameter using GridSearchCV.
+* Ee can implement a feedback system to track misclassification where users can report wrong predictions.
+* We can also use Explainable AI to automatically explain why our model classified an article as Fake or Real.
 
 **Contributing**
 
-Fork the repository.
-Create a new branch.
-Make changes and commit.
-Submit a pull request.
+* Fork the repository.
+* Create a new branch.
+* Make changes and commit.
+* Submit a pull request.
 
 **License:**
 
@@ -81,3 +81,4 @@ MIT License
 **Acknowledgments**
 
 GOD ALMIGHTY
+Pluralcode Academy
