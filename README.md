@@ -49,7 +49,7 @@ The process of building our model into a pipeline involved:
 
 **Model Deployment**
 
-This project was deployed on streamlit cloud using pandas, pickle, re and tldextrack. CSS was used to further enhance the look of our webapp interface.
+This project was deployed on streamlit cloud using pandas, pickle, re and tldextrack. HTML was used to further enhance the look of our webapp interface.
 
 **Findings and Observations**
 
