@@ -52,7 +52,7 @@ st.markdown("""
     .stTextInput > div > div > input {
         border: 2px solid #4A7DF5;
         border-radius: 10px;
-    .stTextArea > div > div > input {
+    }.stTextArea > div > div > textarea {
         border: 2px solid #4A7DF5;
         border-radius: 10px;
     }
