@@ -53,7 +53,7 @@ This project was deployed on streamlit cloud using pandas, pickle, re and tldext
 
 **Findings and Observations**
 
-* This model achieves 92.16% accuracy, which is high for Fake News detection.
+* This model achieves 92.37% accuracy, which is high for Fake News detection.
 * It consistently performed well across different data splits during cross-validation (~92.6%).
 * It balances precision and recall, ensuring it detects fake news while minimizing false alarms and errors.
 * The low standard deviation shows reliability across datasets.
