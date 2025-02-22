@@ -70,7 +70,7 @@ text = st.text_area("Content", placeholder="Paste the full news article here..."
 
 # After the user pastes the title and text of his or her News article and the 'submit' button is clicked, make the prediction and store it
 if st.button("Verify"):
-       if title and text:
+       if title.strip() and text.strip():
         # Combine title and text into a single feature
         combined_text = title + " " + text
 
@@ -86,13 +86,16 @@ if st.button("Verify"):
 
         # Auto-classify if from a trusted domain
         if domain in trusted_domains:
-            st.subheader(f"✅ **Real News (Trusted Source: {domain})**")
+            st.success(f"✅ **Real News (Trusted Source: {domain})**")
         else:
             # Predict using the pipeline
             prediction = pipeline.predict([combined_text])[0]
 
             # Show result
-            result = "✅ **Real News**" if prediction == 1 else "❌ **Fake News**"
-            st.subheader(result)
+            if prediction == 1: 
+                st.success("✅ **Real News 🟢**")
+            else:
+                st.error("❌ **Fake News 🔴**")
+                
 else:
     st.warning("⚠️ Please enter both the title and content to verify.")
