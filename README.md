@@ -24,7 +24,7 @@ The dataset used was obtained from DataFlair and has a dimension of 6335x4, mean
 
 Preprocessing steps involved:
 
-* Naming an unnamed volumn in our dataset
+* Naming an unnamed column in our dataset
 
 * Handling missing values
 
