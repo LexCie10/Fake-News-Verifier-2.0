@@ -83,7 +83,7 @@ if st.session_state.verify_clicked:
          # Check if user provided a URL separately first
         if news_url:
             final_url = extract_domain(news_url)
-         else:
+        else:
             # If no user-provided URL, extract from text
             final_url = extract_url_from_text(combined_text)
     
