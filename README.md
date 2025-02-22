@@ -42,7 +42,7 @@ The process of building our model into a pipeline involved:
 * defining our X and y
 * defining a list of some trusted domains and training our model to extract these domains if present
 * setting up a pipeline of our model of choice and the tfidfvectorizer, and fitting our training data to it
-* using StratifiedKFold Cross-Valifdation technique to train our model repeated so as to help improve prediction accuracy, print the cv_score
+* using StratifiedKFold Cross-Valifdation technique to train our model repeatedly so as to help improve prediction accuracy, print the cv_score
 * fitting the pipeline to the train data
 * testing our pipeline with the test data
 * further evaluation of our pipeline using accuracy score and classification report
