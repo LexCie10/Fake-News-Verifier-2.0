@@ -50,10 +50,10 @@ st.markdown("""
         background-color: #f0f2f6;
     }
     .stTextInput > div > div > input {
-        border: 2px solid #4A7DF5;
+        border: 0.5px solid #4A7DF5;
         border-radius: 10px;
     }.stTextArea > div > div > textarea {
-        border: 2px solid #4A7DF5;
+        border: 0.5px solid #4A7DF5;
         border-radius: 10px;
     }
     </style>
